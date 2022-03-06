@@ -1,0 +1,13 @@
+{"routes": [{
+    "path": "/",
+    "component": "App"
+  }, {
+    "path": "/Teachers",
+    "component": "Teachers"
+  }, {
+    "path": "/Students",
+    "component": "Students"
+  }, {
+    "path": "/Classes",
+    "component": "Classes"
+  }]}
