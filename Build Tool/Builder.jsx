@@ -1,11 +1,15 @@
-import React from 'react';
-import {retrieveModuleData} from './ModuleIdenfification/moduleRetriever.js'
+import React, {useEffect} from 'react'
+import {retrieveModuleData} from './Module Identification/moduleRetriever'
 
-export default Builder(course) {
+export default function Builder(course) {
 
+  useEffect(() => {
+    
+  }, [course])
   
 
   return (
-    <></>
+    <div>Builder</div>
   )
 }
+
