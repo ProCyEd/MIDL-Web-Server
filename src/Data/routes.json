@@ -1,0 +1,13 @@
+{"routes": [{
+    "path": "/",
+    "page": "App"
+  }, {
+    "path": "/boxes",
+    "page": "Boxes"
+  }, {
+    "path": "/settings",
+    "page": "Settings"
+  }, {
+    "path": "/help",
+    "page": "Help"
+  }]}

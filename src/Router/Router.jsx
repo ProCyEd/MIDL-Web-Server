@@ -1,5 +1,6 @@
 import data from '../Data/routes.json'
 import React from 'react'
+import PageBuilder from '../Page Build Tool/PageBuilder';
 
 import {
   BrowserRouter,
@@ -14,7 +15,7 @@ export default function Router() {
   console.log(componentRegistry['App'])
 
   const routes = data.routes.map((route, key) => (
-    <Route path={route.path} element={componentRegistry[route.component]} key={key}>{route.path}</Route>
+    <Route path={route.path} element={<PageBuilder pageTitle={route.page}></PageBuilder>} key={key}>{route.path}</Route>
   ))
 
   return (
