@@ -1,10 +1,26 @@
-import React, {useEffect} from 'react'
-import {retrieveModuleData} from './Module Identification/moduleRetriever'
+import React, {useEffect, useState} from 'react'
+import { retrieveModuleData } from './Module Identification/RetrieveModuleData'
 
 export default function PageBuilder({pageTitle}) {
 
-  return (
-    <h1>{pageTitle}</h1>
-  )
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(async () => {
+    setData(await retrieveModuleData(pageTitle))
+    setLoading(false)
+  }, [])
+
+  if(loading) {
+    return <h1>Loading...</h1>
+  } else {
+    return (
+      <>
+        {console.log(data)}
+        <h1>{pageTitle}</h1>
+      </>
+      
+    )
+  }
 }
 
