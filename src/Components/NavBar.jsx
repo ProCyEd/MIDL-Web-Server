@@ -1,7 +1,12 @@
 import React from 'react';
 import { useEffect, useState } from 'react'
 
-const [data, setdata] = useState([])
+
+
+
+export default function NavBar(){
+
+    const [data, setdata] = useState([])
 
     useEffect(async() => {
         const result = await fetch('http://localhost:3001/nav-info', {
@@ -18,7 +23,6 @@ const [data, setdata] = useState([])
     console.log(data)
 
 
-export default function NavBar(){
     return (
         <div>
             <h1>This is the navbar</h1>
