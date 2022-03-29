@@ -1,5 +1,5 @@
 export default async function publish(data) {
-    let response = await fetch('http://localhost:3001/publish', {
+    let response = await fetch('http://localhost:3001/control/publish', {
         method: 'POST',
         credentials: 'include',
         headers: {
