@@ -2,26 +2,14 @@ import React, {useEffect, useState} from 'react'
 import { retrieveModuleData } from './Module Identification/RetrieveModuleData'
 import publish from '../Network/publish'
 
-export default function PageBuilder({pageTitle}) {
+export default function PageBuilder({pageTitle, data}) {
 
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState(true)
 
-  useEffect(async () => {
-    setData(await retrieveModuleData(pageTitle))
-    setLoading(false)
-  }, [])
-
-  if(loading) {
-    return <h1>Loading...</h1>
-  } else {
-    return (
-      <>
-        {console.log(data)}
-        <h1>{pageTitle}</h1>
-      </>
-      
-    )
-  }
+  return (
+    <>
+      {console.log(data)}
+      <h1>{pageTitle}</h1>
+    </>
+  )
 }
 
