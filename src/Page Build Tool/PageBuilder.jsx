@@ -1,11 +1,14 @@
-import React, {useEffect} from 'react'
-import {retrieveModuleData} from './Module Identification/moduleRetriever'
-import App from '../Pages/App';
+import React, {useEffect, useState} from 'react'
+import { retrieveModuleData } from './Module Identification/RetrieveModuleData'
+import publish from '../Network/publish'
 
-export default function PageBuilder({pageTitle}) {
+export default function PageBuilder({pageTitle, data}) {
+
+
   return (
-    <h1>
-		{pageTitle}
-	</h1>
+    <>
+      {console.log(data)}
+      <h1>{pageTitle}</h1>
+    </>
   )
 }
