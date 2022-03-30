@@ -1,5 +1,8 @@
+import getEnviroment from "../../enviroment";
+
 export default async function publish(data, queue) {
-    let response = await fetch('http://localhost:3001/control/publish', {
+    const env = getEnviroment()
+    let response = await fetch(env + '/control/publish', {
         method: 'POST',
         credentials: 'include',
         headers: {
