@@ -114,8 +114,6 @@
         font-size: $heading_lg;
         font-weight: $stroke;
         text-align: center;
-        // padding-top: 1.5em;
-        // padding-bottom: .5em;
         letter-spacing: .25em;
         text-transform: uppercase;
         line-height: 2em;
@@ -126,8 +124,8 @@
     }
 
     @mixin section_container {
-        margin-right: calc(calc(100vw - 60em) / 2);
-        margin-left: calc(calc(100vw - 60em) / 2);
+        margin-right: calc(calc(100vw - 70em) / 2);
+        margin-left: calc(calc(100vw - 70em) / 2);
         // margin-top: 3em;
         // margin-bottom: 3em;
         padding-bottom: 3em;

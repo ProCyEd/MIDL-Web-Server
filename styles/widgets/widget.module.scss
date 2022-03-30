@@ -1,0 +1,27 @@
+@import '../theme.module.scss';
+
+
+@mixin container($width: 100%){
+    @include box_style_compelation();
+    padding: 1em;
+    margin: 0;
+    box-shadow: none;
+    width: $width;
+    background-color: rgb(54, 54, 54);
+}
+
+.containerLarge{
+    @include container();
+    height: 30em;
+}
+
+.containerWide{
+    @include container();
+    height: 10em;
+}
+
+.containerSmall{
+    @include container(46.3%);
+    height: 10em;
+}
+
