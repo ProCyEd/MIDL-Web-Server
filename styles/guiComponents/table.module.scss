@@ -1,0 +1,29 @@
+
+
+.container{
+    .headerContainer{
+        display: flex;
+        justify-content: space-around;
+        border-bottom: 1px solid white;
+        
+        .headerItem{
+            // padding-left: .5em;
+            // padding-right: .5em;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1em;
+        }    
+    }
+
+    .rowContainer{
+        display: flex;
+        justify-content: space-around;
+        // border-top: 1px solid white;
+        border-bottom: 1px solid white;
+
+        .rowItem{
+            // padding-left: .5em;
+            // padding-right: .5em;
+        }    
+    }
+}

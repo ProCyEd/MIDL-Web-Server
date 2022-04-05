@@ -4,7 +4,7 @@ import Content from './Content';
 
 const Small = ({ title, content, contentType }) => {
 
-    console.log(contentType)
+    // console.log(contentType)
 
     return(
         <div className={styles.containerSmall}>

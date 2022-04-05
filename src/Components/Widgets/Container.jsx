@@ -6,7 +6,6 @@ import styles from '../../../styles/widgets/container.module.scss';
 
 export default function Container({ container }) {
 
-    // console.log(container)
 
     const Widget = ({ widget, content, title, contentType }) => {
         if(widget === "large"){

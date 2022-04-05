@@ -3,7 +3,8 @@
 
 @mixin container($width: 100%){
     @include box_style_compelation();
-    padding: 1em;
+    padding-right: 3em;
+    padding-left: 3em;
     margin: 0;
     box-shadow: none;
     width: $width;
@@ -53,7 +54,7 @@
 }
 
 .containerSmall{
-    @include container(46.2%);
+    @include container(40.2%);
     .widgetTitleContainer{
         @include widgetTitleContainer();
     }

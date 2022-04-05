@@ -17,7 +17,7 @@ export default function NavBar(){
         setdata(res)  
     }, [])
 
-    console.log(data)
+    // console.log(data)
 
 
     return (

@@ -1,19 +1,22 @@
 import React from 'react';
+import Text from '../GuiComponents/Text';
+import Table from '../GuiComponents/Table';
+import Switch from '../Controls/Switch';
+import Slider from '../Controls/Slider';
 
 
 export default function Content({ contentType, content }){
 
-    const Text = () => {
-        return(
-            <div>
-                {content}
-            </div>
-        )
-    }
-
     if(contentType === 'text'){
-        return <Text></Text>
-    } else {
+        return <Text content={content}></Text>
+    } else if(contentType === 'table'){
+        return <Table content={content}></Table>
+    } else if(contentType === 'switch'){
+        return <Switch content={content}></Switch>
+    } else if(contentType === 'slider'){
+        return <Slider content={content}></Slider>
+    }
+    else {
         return <></>
     }
 }
