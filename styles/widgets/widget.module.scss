@@ -10,18 +10,59 @@
     background-color: rgb(54, 54, 54);
 }
 
+@mixin widgetTitleContainer(){
+    width: 100%;
+    color: white;
+}
+
+@mixin widgetTitle(){
+
+}
+
+@mixin widgetContent(){
+    width: 100%;
+    color: white;
+}
+
 .containerLarge{
     @include container();
-    height: 30em;
+    .widgetTitleContainer{
+        @include widgetTitleContainer();
+    }
+    .widgetTitle{
+        @include widgetTitle();
+    }
+    .widgetContent{
+        @include widgetContent();
+    }
+    min-height: 30em;
 }
 
 .containerWide{
     @include container();
-    height: 10em;
+    .widgetTitleContainer{
+        @include widgetTitleContainer();
+    }
+    .widgetTitle{
+        @include widgetTitle();
+    }
+    .widgetContent{
+        @include widgetContent();
+    }
+    min-height: 15em;
 }
 
 .containerSmall{
-    @include container(46.3%);
-    height: 10em;
+    @include container(46.2%);
+    .widgetTitleContainer{
+        @include widgetTitleContainer();
+    }
+    .widgetTitle{
+        @include widgetTitle();
+    }
+    .widgetContent{
+        @include widgetContent();
+    }
+    min-height: 15em;
 }
 

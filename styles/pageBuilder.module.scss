@@ -10,15 +10,5 @@
 
     }
 
-    .container{
 
-        @include section_container();
-        @include box_style_compelation();
-        padding: 1em;
-        // margin: 0;
-        display: flex;
-        flex-wrap: wrap;
-        grid-gap: 1em;
-
-    }
 }
