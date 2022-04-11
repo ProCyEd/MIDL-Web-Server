@@ -25,6 +25,8 @@
     color: white;
 }
 
+
+
 .containerLarge{
     @include container();
     .widgetTitleContainer{
@@ -54,7 +56,7 @@
 }
 
 .containerSmall{
-    @include container(40.2%);
+    @include container(23.3%);
     .widgetTitleContainer{
         @include widgetTitleContainer();
     }
