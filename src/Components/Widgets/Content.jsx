@@ -3,6 +3,8 @@ import Text from '../GuiComponents/Text';
 import Table from '../GuiComponents/Table';
 import Switch from '../Controls/Switch';
 import Slider from '../Controls/Slider';
+import RadioButtonsGroup from '../Controls/Radio';
+import BasicSelect from '../Controls/Selecter';
 
 
 export default function Content({ contentType, content }){
@@ -15,8 +17,11 @@ export default function Content({ contentType, content }){
         return <Switch content={content}></Switch>
     } else if(contentType === 'slider'){
         return <Slider content={content}></Slider>
-    }
-    else {
+    } else if(contentType === 'radio'){
+        return <RadioButtonsGroup content={content}></RadioButtonsGroup>
+    } else if(contentType === 'select'){
+        return <BasicSelect content={content}></BasicSelect>
+    } else {
         return <></>
     }
 }
