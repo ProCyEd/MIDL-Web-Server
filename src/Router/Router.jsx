@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import PageBuilder from '../Page Build Tool/PageBuilder';
-import { retrieveModuleData } from '../Page Build Tool/Module Identification/RetrieveModuleData';
 
 import {
   BrowserRouter,
@@ -8,21 +7,9 @@ import {
   Route,
 } from "react-router-dom";
 
-export default function Router() {
+export default function Router({routeData}) {
 
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(async () => {
-    setData(await retrieveModuleData("IOT"))
-    setLoading(false)
-  }, [])
-
-  if(loading) {
-    return <h1>Application is Loading...</h1>
-  } else {
-
-    const routes = data.routes.map((route, key) => (
+    const routes = routeData.map((route, key) => (
       <Route path={route.path} element={<PageBuilder pageTitle={route.pageName} data={route.data}></PageBuilder>} key={key}>{route.path}</Route>
     ))
 
@@ -33,5 +20,4 @@ export default function Router() {
       </Routes>
       </BrowserRouter>
     )
-  }
 }
