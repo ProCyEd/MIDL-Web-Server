@@ -124,10 +124,13 @@
     }
 
     @mixin section_container {
-        margin-right: calc(calc(100vw - 70em) / 2);
-        margin-left: calc(calc(100vw - 70em) / 2);
+        // margin-right: calc(calc(100vw - 70em) / 2);
+        // margin-left: calc(calc(100vw - 70em) / 2);
         // margin-top: 3em;
         // margin-bottom: 3em;
+        $margin: 4em;
+        margin-left: $margin;
+        margin-right: $margin;
         padding-bottom: 3em;
     }
 
