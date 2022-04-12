@@ -4,16 +4,16 @@ import Wide from './Wide';
 import Small from './Small';
 import styles from '../../../styles/widgets/container.module.scss';
 
-export default function Container({ container }) {
+export default function Container({ container, routeData }) {
 
 
-    const Widget = ({ widget, content, title, contentType }) => {
+    const Widget = ({ widget, content, title, contentType, containerTitle, routeData }) => {
         if(widget === "large"){
-            return <Large content={content} title={title} contentType={contentType}></Large>
+            return <Large content={content} title={title} contentType={contentType} containerTitle={containerTitle} routeData={routeData}></Large>
         } else if(widget === "wide"){
-            return <Wide content={content} title={title} contentType={contentType}></Wide>
+            return <Wide content={content} title={title} contentType={contentType} containerTitle={containerTitle} routeData={routeData}></Wide>
         } else if(widget === "small"){
-            return <Small content={content} title={title} contentType={contentType}></Small>
+            return <Small content={content} title={title} contentType={contentType} containerTitle={containerTitle} routeData={routeData}></Small>
         }
     }
 
@@ -25,7 +25,7 @@ export default function Container({ container }) {
             </div>
 
             {container.widgets.map((w, k) => {
-                return <Widget widget={w.type} content={w.content} contentType={w.contentType} title={w.title} key={k}></Widget>
+                return <Widget widget={w.type} content={w.content} contentType={w.contentType} title={w.title} key={k} containerTitle={container.title} routeData={routeData + '/' + w.title}></Widget>
             })}
         </div>
     )

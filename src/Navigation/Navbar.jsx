@@ -106,7 +106,8 @@ export default function MiniDrawer() {
   const [loading, setLoading] = useState(true)
 
   useEffect(async () => {
-    setData(await retrieveModuleData("IOT"))
+    setData(await retrieveModuleData("Example"))
+    console.log("data secured")
     setLoading(false)
   }, [])
 
@@ -183,7 +184,7 @@ export default function MiniDrawer() {
           </Drawer>
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
             <DrawerHeader />
-                    <Router routeData={data.routes}/>
+                    <Router routingAddress={data.routingAddress} routeData={data.routes}/>
           </Box>
         </Box>
       );

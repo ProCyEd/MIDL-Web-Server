@@ -7,14 +7,14 @@ import RadioButtonsGroup from '../Controls/Radio';
 import BasicSelect from '../Controls/Selecter';
 
 
-export default function Content({ contentType, content }){
+export default function Content({ contentType, content, routeData }) {
 
     if(contentType === 'text'){
         return <Text content={content}></Text>
     } else if(contentType === 'table'){
         return <Table content={content}></Table>
     } else if(contentType === 'switch'){
-        return <Switch content={content}></Switch>
+        return <Switch routeData={routeData} content={content}></Switch>
     } else if(contentType === 'slider'){
         return <Slider content={content}></Slider>
     } else if(contentType === 'radio'){
