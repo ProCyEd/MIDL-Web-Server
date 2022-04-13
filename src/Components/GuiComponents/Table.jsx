@@ -33,7 +33,6 @@ export default function Table({ content }) {
     }
 
     const Row = ({ row }) => {
-        console.log(row);
         return (
             <div className={styles.rowContainer}>
                 {row.map((i, k) => {

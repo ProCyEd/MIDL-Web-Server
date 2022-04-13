@@ -1,5 +1,7 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import PageBuilder from '../Page Build Tool/PageBuilder';
+import MiniDrawer from '../Navigation/Navbar';
+import { retrieveModuleData } from '../Page Build Tool/Module Identification/RetrieveModuleData';
 
 import {
   BrowserRouter,
@@ -7,17 +9,29 @@ import {
   Route,
 } from "react-router-dom";
 
-export default function Router({routeData, routingAddress}) {
+export default function Router() {
 
-    const routes = routeData.map((route, key) => (
-      <Route path={route.path} element={<PageBuilder pageTitle={route.pageName} data={route.data} routeData={routingAddress + '/' + route.pageName}></PageBuilder>} key={key} >{route.path}</Route>
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(async () => {
+    setData(await retrieveModuleData("IOT"))
+    console.log("data secured")
+    setLoading(false)
+  }, [])
+
+  if(loading) {
+    return <h1>Application is Loading...</h1>
+  } else {
+
+    const routes = data.routes.map((route, key) => (
+      <Route path={route.path} element={<PageBuilder pageTitle={route.pageName} data={route.data} routeData={data.routingAddress + '/' + route.pageName}></PageBuilder>} key={key} >{route.path}</Route>
     ))
 
     return (
       <BrowserRouter>
-      <Routes>
-        {routes}
-      </Routes>
+        <MiniDrawer routes={routes} paths={data.routes} name={data.moduleName}/>
       </BrowserRouter>
     )
+  }
 }

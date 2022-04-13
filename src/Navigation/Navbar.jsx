@@ -20,8 +20,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HelpIcon from '@mui/icons-material/Help';
 import HomeIcon from '@mui/icons-material/Home';
-import Router from '../Router/Router';
-import { retrieveModuleData } from '../Page Build Tool/Module Identification/RetrieveModuleData';
+import {Link, Routes} from 'react-router-dom'
 
 const drawerWidth = 240;
 
@@ -90,7 +89,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function MiniDrawer() {
+export default function MiniDrawer({routes, paths, name}) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -101,15 +100,6 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(async () => {
-    setData(await retrieveModuleData("Example"))
-    console.log("data secured")
-    setLoading(false)
-  }, [])
 
   const iconSwitch = (pageName) => {
     switch (pageName) {
@@ -123,11 +113,6 @@ export default function MiniDrawer() {
         return <ArrowForwardIcon />;
     }
   }
-
-  if(loading) {
-    return <h1>Application is Loading...</h1>
-
-  } else {
     return (
         <Box sx={{ display: 'flex' }}>
           <CssBaseline />
@@ -146,7 +131,7 @@ export default function MiniDrawer() {
                 <MenuIcon />
               </IconButton>
               <Typography variant="h6" noWrap component="div">
-                {data.moduleName}
+                {name}
               </Typography>
             </Toolbar>
           </AppBar>
@@ -157,36 +142,37 @@ export default function MiniDrawer() {
               </IconButton>
             </DrawerHeader>
             <Divider />
-            <List>
-              {data.routes.map((route, index) => (
-                <ListItemButton
-                  key={route.pageName}
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? 'initial' : 'center',
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
+              {paths.map((route, index) => (
+                <Link to={route.path} key={index}>
+                  <ListItemButton
+                    key={route.pageName}
                     sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : 'auto',
-                      justifyContent: 'center',
+                      minHeight: 48,
+                      justifyContent: open ? 'initial' : 'center',
+                      px: 2.5,
                     }}
                   >
-                    {iconSwitch(route.pageName)}
-                  </ListItemIcon>
-                  <ListItemText primary={route.pageName} sx={{ opacity: open ? 1 : 0 }} />
-                </ListItemButton>
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : 'auto',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      {iconSwitch(route.pageName)}
+                    </ListItemIcon>
+                    <ListItemText primary={route.pageName} sx={{ opacity: open ? 1 : 0 }} />
+                  </ListItemButton>
+                </Link>
               ))}
-            </List>
             <Divider />
           </Drawer>
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
             <DrawerHeader />
-                    <Router routingAddress={data.routingAddress} routeData={data.routes}/>
+            <Routes>
+              {routes}
+            </Routes>
           </Box>
         </Box>
       );
-  }
 }

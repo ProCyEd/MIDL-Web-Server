@@ -6,7 +6,6 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
 export default function RadioButtonsGroup({ content }) {
-    console.log(content)
   return (
     <FormControl>
         <RadioGroup
