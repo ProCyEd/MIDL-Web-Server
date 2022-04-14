@@ -7,7 +7,7 @@ import MiniDrawer from './Navigation/Navbar';
 
 ReactDOM.render(
   <React.StrictMode>
-    <MiniDrawer></MiniDrawer>
+    <Router></Router>
   </React.StrictMode>,
   document.getElementById('root')
 )

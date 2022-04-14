@@ -1,14 +1,12 @@
-export default async function publish(data, queue) {
+export default async function publish(data, itemRoute) {
     let response = await fetch('http://localhost:3001/control/publish', {
         method: 'POST',
-        credentials: 'include',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
-        body: {
-            data: JSON.stringify(data),
-            queue: queue
-        }
+        body: JSON.stringify(data),
+            //queue: JSON.stringify(queue)
+        
     })
     response = await response.json();
 
