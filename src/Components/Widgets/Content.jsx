@@ -23,6 +23,6 @@ export default function Content({ contentType, content, routeData }) {
         case 'select':
             return <BasicSelect content={content} routeData={routeData}></BasicSelect>
         default:
-            return < ></>;
+            return <></>;
     }
 }

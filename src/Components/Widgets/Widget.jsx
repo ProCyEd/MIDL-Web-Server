@@ -4,10 +4,9 @@ import Content from './Content';
 import { makeStyles } from '@mui/styles';
 import data from '../Styles';
 
-
 const useStyles = makeStyles({
 
-    containerLarge: {
+    container: {
         padding: data.padding,
         margin: 0,
         width: '100%',
@@ -18,12 +17,12 @@ const useStyles = makeStyles({
     },
 });
 
-const Large = ({ title, content, contentType, routeData }) => {
+const Widget = ({ title, content, contentType, routeData }) => {
 
     const classes = useStyles();
 
     return(
-        <div className={classes.containerLarge}>
+        <div className={classes.container}>
             <div className={styles.widgetTitleContainer}>
                 <h1 className={styles.widgetTitle}>{title}</h1>
             </div>
@@ -34,4 +33,4 @@ const Large = ({ title, content, contentType, routeData }) => {
     )
 }
 
-export default Large
+export default Widget
