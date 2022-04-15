@@ -11,7 +11,7 @@ const useStyles = makeStyles({
 
     nestedContainer: {      
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr 1fr', 
+        gridTemplateColumns: '1fr 1fr', 
         gridGap: '1em',
         width: '100%',
     },
@@ -25,7 +25,6 @@ const useStyles = makeStyles({
 });
 
 const Nest = (props) => {
-    
 
     const classes = useStyles();
 
