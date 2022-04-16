@@ -5,6 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { makeStyles } from '@mui/styles';
+import publish from '../../Network/publish';
 
 
 const useStyles = makeStyles({
@@ -27,13 +28,14 @@ const useStyles = makeStyles({
     },
 })
 
-export default function BasicSelect({ content }) {
+export default function BasicSelect({ content, routeData }) {
   const [age, setAge] = React.useState('');
 
   // console.log(options)
   // console.log(name)
-  const handleChange = (event) => {
+  const handleChange = async (event) => {
     setAge(event.target.value);
+    await publish({type: 'select', value: event.target.value, route: routeData})
   };
 
   const classes = useStyles()
