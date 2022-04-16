@@ -16,12 +16,12 @@ const useStyles = makeStyles({
         width: '100%',
     },
 
-    divide: {
-        width: '100%',
-        height: '3px',
-        backgroundColor: data.divideColor,
-        marginTop: '1em',
-    }
+    // divide: {
+    //     width: '100%',
+    //     height: '3px',
+    //     backgroundColor: data.divideColor,
+    //     marginTop: '1em',
+    // }
 });
 
 const Nest = (props) => {
