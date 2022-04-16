@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from '../../../styles/widgets/widget.module.scss';
 import Content from './Content';
 import { makeStyles } from '@mui/styles';
 import data from '../Styles';
@@ -15,6 +14,18 @@ const useStyles = makeStyles({
         color: data.color,
         borderRadius: data.borderRadius,        
     },
+
+    widgetTitleContainer: {
+
+    },
+
+    widgetTitle: {
+
+    },
+
+    widgetContent: {
+
+    },
 });
 
 const Widget = ({ title, content, contentType, routeData }) => {
@@ -23,10 +34,10 @@ const Widget = ({ title, content, contentType, routeData }) => {
 
     return(
         <div className={classes.container}>
-            <div className={styles.widgetTitleContainer}>
-                <h1 className={styles.widgetTitle}>{title}</h1>
+            <div className={classes.widgetTitleContainer}>
+                <h1 className={classes.widgetTitle}>{title}</h1>
             </div>
-            <div className={styles.widgetContent}>
+            <div className={classes.widgetContent}>
                 <Content routeData={routeData} content={content} contentType={contentType}></Content>
             </div>
         </div>

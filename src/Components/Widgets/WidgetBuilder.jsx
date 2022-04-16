@@ -1,8 +1,6 @@
 import React from 'react';
-import Large from './Large';
 import Widget from './Widget';
 import Nest from './Nest';
-import Small from './Small';
 
 
 const WidgetBuilder = ( props ) => {

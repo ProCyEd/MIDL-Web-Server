@@ -1,13 +1,44 @@
 import React from 'react';
 import styles from '../../../styles/guiComponents/table.module.scss';
+import { makeStyles } from '@mui/styles';
+import data from '../Styles';
 
+const useStyles = makeStyles({
+    headerItem: {
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
+        marginBottom: '1em',
+    },
+    
+    headerContainer: {
+        display: 'flex',
+        justifyContent: 'space-around',
+        borderBottom: '1px solid white',
+    },
+
+    rowItem: {
+
+    },
+
+    rowContainer: {
+        display: 'flex',
+        justifyContent: 'space-around',
+        borderBottom: '1px solid white',
+    },
+
+    container: {
+
+    },
+});
 export default function Table({ content }) {
 
     // console.log(content);
 
+    const classes = useStyles();
+
     const HeaderItem = ({ item }) => {
         return (
-            <div className={styles.headerItem}>
+            <div className={classes.headerItem}>
                 {item}
             </div>
         )
@@ -15,7 +46,7 @@ export default function Table({ content }) {
 
     const Header = ({ headers }) => {
         return (
-            <div className={styles.headerContainer}>
+            <div className={classes.headerContainer}>
                 {headers.map((header, k) => {
                     return <HeaderItem key={k} item={header.label}></HeaderItem>
                 })}
@@ -26,7 +57,7 @@ export default function Table({ content }) {
     const RowItem = ({ item }) => {
         // console.log(item);
         return (
-            <div className={styles.rowItem}>
+            <div className={classes.rowItem}>
                 {item}
             </div>
         )
@@ -34,7 +65,7 @@ export default function Table({ content }) {
 
     const Row = ({ row }) => {
         return (
-            <div className={styles.rowContainer}>
+            <div className={classes.rowContainer}>
                 {row.map((i, k) => {
                     return <RowItem key={k} item={i.description}></RowItem>
                 })}

@@ -7,21 +7,22 @@ const useStyles = makeStyles({
 
     container: {
         width: '100%',
+        border: '3px solid black',
+    },
+
+    title: {
+        // height: 0,
+        margin: 0,
+        padding: 0,
     },
 
     nestedContainer: {      
         display: 'grid',
         gridTemplateColumns: '1fr 1fr', 
+        // flexWrap: 'wrap',
         gridGap: '1em',
         width: '100%',
     },
-
-    // divide: {
-    //     width: '100%',
-    //     height: '3px',
-    //     backgroundColor: data.divideColor,
-    //     marginTop: '1em',
-    // }
 });
 
 const Nest = (props) => {
@@ -30,14 +31,12 @@ const Nest = (props) => {
 
     return(
         <div className={classes.container}>
-            <div className={classes.divide}></div>
-            <h1>{props.content.title}</h1>
+            <h1 className={classes.title}>{props.content.title}</h1>
             <div className={classes.nestedContainer}>
                 {props.content.widgets.map((w, k) => {
                     return <WidgetBuilder widget={w.type} content={w.content} contentType={w.contentType} title={w.title} key={k}></WidgetBuilder>
                 })}
             </div>
-            <div className={classes.divide}></div>
         </div>
     )
 }
